@@ -1,1 +1,4 @@
-add_executable(allocation main.cpp)
+add_executable(allocation
+    main.cpp
+    allocation.cpp
+)
