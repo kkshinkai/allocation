@@ -1,6 +1,11 @@
-#include <iostream>
+#include <example.hpp>
+#include <cstdio>
 
 int main() {
-  std::cout << "Hello, world!" << std::endl;
+
+  printf("# Example for C-Heap object:");
+  auto str = new string_val("Hello, world!");
+  delete str;
+
   return 0;
 }

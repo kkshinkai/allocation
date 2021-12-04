@@ -41,10 +41,10 @@ void allocated_object::print_value() const {
   std::cout << "AllocatedObj(" << this << ")";
 }
 
-void *c_heap_object::operator new(size_t size) noexcept(false) {
+void *c_heap_object::operator new(size_t size) noexcept(false) { DEBUG_PRINTER;
   return static_cast<void *>(allocate_heap(size));
 }
 
-void c_heap_object::operator delete(void *p) noexcept {
+void c_heap_object::operator delete(void *p) noexcept { DEBUG_PRINTER;
   free_heap(p);
 }
