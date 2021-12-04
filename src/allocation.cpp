@@ -42,9 +42,9 @@ void allocated_object::print_value() const {
 }
 
 void *c_heap_object::operator new(size_t size) noexcept(false) {
-  return malloc(size);
+  return static_cast<void *>(allocate_heap(size));
 }
 
 void c_heap_object::operator delete(void *p) noexcept {
-  free(p);
+  free_heap(p);
 }
