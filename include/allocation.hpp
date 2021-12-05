@@ -67,4 +67,16 @@ class c_heap_object ALLOCATION_SUPER_CLASS {
   void operator delete(void *p) noexcept;
 };
 
+// ------------------------------ Stack object ---------------------------------
+
+// Base class for objects allocated on the stack only. Calling `new` or `delete`
+// will result in fatal error.
+class stack_object ALLOCATION_SUPER_CLASS {
+ private:
+  void *operator new(size_t size) noexcept(false);
+  void *operator new[](size_t size) noexcept(false);
+  void operator delete(void *p) noexcept;
+  void operator delete[](void *p) noexcept;
+};
+
 #endif // Allocation_allocation_hpp__

@@ -18,4 +18,15 @@ class string_val: public c_heap_object {
 
 };
 
+class stack_integer: public stack_object {
+ private:
+  int value; // All fields are allocated on the stack.
+
+ public:
+  explicit stack_integer(int value): value(value) { DEBUG_PRINTER; }
+  ~stack_integer() { DEBUG_PRINTER; }
+
+  [[nodiscard]] int get_value() const { return value; }
+};
+
 #endif // Allocation_example_hpp__

@@ -48,3 +48,19 @@ void *c_heap_object::operator new(size_t size) noexcept(false) { DEBUG_PRINTER;
 void c_heap_object::operator delete(void *p) noexcept { DEBUG_PRINTER;
   free_heap(p);
 }
+
+void *stack_object::operator new(size_t size) noexcept(false) {
+  exit(1); // Should never be called
+}
+
+void *stack_object::operator new[](size_t size) noexcept(false) {
+  exit(1); // Should never be called
+}
+
+void stack_object::operator delete(void *p) noexcept {
+  exit(1); // Should never be called
+}
+
+void stack_object::operator delete[](void *p) noexcept {
+  exit(1); // Should never be called
+}
