@@ -79,4 +79,13 @@ class stack_object ALLOCATION_SUPER_CLASS {
   void operator delete[](void *p) noexcept;
 };
 
+// ------------------------------ All static -----------------------------------
+
+// Base class for classes that constitute name spaces.
+class all_static ALLOCATION_SUPER_CLASS {
+ public:
+  all_static() { exit(1); }
+  ~all_static() { exit(1); }
+};
+
 #endif // Allocation_allocation_hpp__
