@@ -11,6 +11,9 @@ int main() {
   {
     auto stack_i = stack_integer(42);
     printf("%d\n", stack_i.get_value());
+
+    // auto err = new stack_integer(42);
+    //            ^^^ error: 'operator new' is a private member of 'stack_object'
   }
 
   return 0;
